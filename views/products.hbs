@@ -1,0 +1,102 @@
+{{>sidebar}}
+<div class="main-panel">
+    {{>  nav}}
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header card-header-info">
+                            <h4 class="card-title ">Products</h4>
+                            <p class="card-category"> Here is a information Products</p>
+                            <a href="/product_create" class="btn btn-sm btn-success">Create</a>
+                        </div>
+                        <div class="card-body">
+                            {{#if products}}
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead class=" text-info">
+                                        <th>
+                                            id
+                                        </th>
+                                        <th>
+                                            Name
+                                        </th>
+                                        <th>
+                                            Vote Averege
+                                        </th>
+                                        <th>
+                                            Quantity
+                                        </th>
+                                        <th>
+                                            Category
+                                        </th>
+                                        <th>
+                                            Price
+                                        </th>
+                                        <th>
+                                            Release Date
+                                        </th>
+                                        <th>
+                                            Image
+                                        </th>
+                                        <th>
+                                            Change
+                                        </th>
+                                    </thead>
+                                    <tbody>
+                                        {{#each products}}
+                                        <tr>
+                                            <td>
+                                                {{id}}
+                                            </td>
+                                            <td>
+                                                {{name}}
+                                            </td>
+                                            <td>
+                                                {{vote_average}}
+                                            </td>
+                                            <td>
+                                                {{quantity}}
+                                            </td>
+                                            <td>
+                                                {{category}}
+                                            </td>
+                                            <td>
+                                                {{price}}
+                                            </td>
+                                            <td>
+                                                {{release_date}}
+                                            </td>
+                                            <td>
+                                                <a href="javascript:;">
+                                                    <img class="image" width="100" height="100"
+                                                        src="img/{{image_name}}" />
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a href="/product-edit-{{id}}"
+                                                    class="btn btn-sm btn-info product-edit">Edit</a>
+                                                <button class="btn btn-sm btn-danger delete-product" value="{{id}}"
+                                                    data-toggle="modal" data-target="#confirm-delete">Delete</button>
+                                            </td>
+                                        </tr>
+
+                                        {{/each}}
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            {{else}}
+                            <p class="text-center">No players found. Go <a href="/product_create">here</a> to add
+                                players.</p>
+                            {{/if}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{>modal}}
+        </div>
+    </div>
+    {{> footer}}
+</div>
